@@ -6,31 +6,30 @@
 //  Copyright (c) 2015 Taylor Petrychyn. All rights reserved.
 //
 
-#ifndef __Assignment8__InstructionsArray__
-#define __Assignment8__InstructionsArray__
-
-//Before interpreting a HAL program, the instructions in the file should be read into a program array implemented as an unsorted array-based list type defined as a C++ class, where each element consists of a struct containing two members: (1) a string operation member and (2) a char* operand member. For example, the following program array contains the example HAL program shown above. Here, each line of the program is associated with a unique, sequential integer (i.e., the array index which doubles as the line number, so the line number from the input file does not need to be stored in the program array). A special variable of type int named pc (i.e., program counter) should be used to indicate the next instruction to execute.
-
+#ifndef SYMBOLTABLE_H
+#define SYMBOLTABLE_H
 
 #include <stdio.h>
 #include <string>
 
 using namespace std;
 
-const int MAX_LENGTH = 100;
+const int MAX = 100;
 
-struct Data {
+struct SymData {
     string symbol;
     int value;
     
-    friend class InstructionsArray;
+    SymData();
+    
+    friend class SymbolTable;
 };
 
 class SymbolTable {
 private:
     int p;
     int length;
-    Data data[MAX_LENGTH];
+    SymData data[MAX];
     
 public:
     
@@ -48,18 +47,18 @@ public:
     
     void SetP(const int& newP);
     
-    Data Read();
+    SymData Read();
     
-    void Write(const Data& d);
+    void Write(const SymData& d);
     
     bool IsFull();
     bool IsEmpty();
     
     int Length() { return length; }
     
-    void InsertSorted(const Data& d);
+    void InsertSorted(const SymData& d);
     
     bool FindSorted(const string& x);
 };
 
-#endif /* defined(__Assignment8__InstructionsArray__) */
+#endif

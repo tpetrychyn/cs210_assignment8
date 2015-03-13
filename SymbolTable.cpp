@@ -35,16 +35,16 @@ void SymbolTable::SetP(const int& newP) {
     p = newP;
 }
 
-Data SymbolTable::Read() {
+SymData SymbolTable::Read() {
     return data[p];
 }
 
-void SymbolTable::Write(const Data& d) {
+void SymbolTable::Write(const SymData& d) {
     data[p] = d;
 }
 
 bool SymbolTable::IsFull() {
-    if (length == MAX_LENGTH)
+    if (length == MAX)
         return true;
     return false;
 }
@@ -55,7 +55,7 @@ bool SymbolTable::IsEmpty() {
     return false;
 }
 
-void SymbolTable::InsertSorted(const Data& d) {
+void SymbolTable::InsertSorted(const SymData& d) {
     p = 0;
     while (p < length && d.symbol > data[p].symbol)
         p ++;
@@ -82,4 +82,9 @@ bool SymbolTable::FindSorted(const string& x) {
             return true;
     }
     return false;
+}
+
+SymData::SymData() {
+    symbol = "";
+    value = 0;
 }
