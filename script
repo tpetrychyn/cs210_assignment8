@@ -1,0 +1,64 @@
+Script started on Fri Mar 13 02:11:10 2015
+ 
+news: OpenSSH
+ 
+Script on hercules[1]% ls
+InstructionsArray.cpp   SymbolTable.cpp         main*
+InstructionsArray.h     SymbolTable.h           main.cpp
+StackArray.cpp          TestScores.txt          script
+StackArray.h            instructions.txt
+Script on hercules[2]% g++ main.cpp InstructionsArray.cpp SymbolTable.cpp StackA rray.cpp -o mi[Kain
+Script on hercules[3]% ./main TestScores.txt
+0 1 2 3 Enter a test score:4 77
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 86
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 54
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 95
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 62
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 100
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 81
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 73
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 39
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 88
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 52
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 67
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 45
+5 6 7 8 9 10 11 12 13 14 15 16 17 18 3 Enter a test score:4 -1
+5 6 7 8 9 19 The total score is:20 21 91922 
+23 The number of scores entered:24 25 1326 
+27 The average is:28 29 30 31 7032 Script on hercules[4]% cat TestScores.txt
+0 declare total
+1 declare count
+2 declare input
+3 writestring Enter a test score:
+4 read
+5 set input
+6 get input
+7 put -1
+8 compare
+9 jumpequal 19
+10 get input
+11 get total
+12 add
+13 set total
+14 put 1
+15 get count
+16 add
+17 set count
+18 jump 3
+19 writestring The total score is:
+20 get total
+21 write
+22 writenl
+23 writestring The number of scores entered:
+24 get count
+25 write
+26 writenl
+27 writestring The average is:
+28 get count
+29 get total
+30 divide
+31 write
+32 endScript on hercules[5]% exit
+exit
+
+script done on Fri Mar 13 02:12:10 2015

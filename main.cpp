@@ -8,6 +8,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <stdlib.h>
+#include <cstring>
 #include "InstructionsArray.h"
 #include "SymbolTable.h"
 #include "StackArray.h"
@@ -48,7 +50,8 @@ int main(int argc, const char * argv[]) {
             operand.erase(0,1);
             tempData.operand = new char[operand.length() + 1];
             strcpy(tempData.operand, operand.c_str());
-        } else tempData.operand = "\0";
+        } else
+            tempData.operand = NULL;
         instructions.InsertUnsorted(tempData);
     }
     
